@@ -54,6 +54,11 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
+const socialLinks = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/raghavverma98/" },
+  { label: "GitHub", href: "https://github.com/raghavverma-dev" },
+];
+
 export default function Home() {
   const [hasEntered, setHasEntered] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -154,6 +159,19 @@ export default function Home() {
               >
                 View resume
               </a>
+            </div>
+            <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold text-teal-200">
+              {socialLinks.map((link) => (
+                <a
+                  className="transition hover:text-white"
+                  href={link.href}
+                  key={link.label}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  {link.label}
+                </a>
+              ))}
             </div>
           </div>
 

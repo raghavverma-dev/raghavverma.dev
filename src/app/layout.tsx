@@ -12,10 +12,40 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const title = "Raghav Verma | Software Engineer";
+const description =
+  "Raghav Verma is a New York-based software engineer at Salesforce building recommendation systems, ML evaluation platforms, and distributed infrastructure.";
+
 export const metadata: Metadata = {
-  title: "Raghav Verma | Software Engineer",
-  description:
-    "Raghav Verma is a New York-based software engineer at Salesforce building recommendation systems, ML evaluation platforms, and distributed infrastructure.",
+  metadataBase: new URL("https://raghavverma.dev"),
+  title,
+  description,
+  alternates: {
+    canonical: "/",
+  },
+  icons: {
+    icon: "/favicon.svg",
+  },
+  openGraph: {
+    title,
+    description,
+    url: "/",
+    siteName: "Raghav Verma",
+    images: [
+      {
+        url: "/raghav-verma-photo.jpg",
+        alt: "Raghav Verma",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/raghav-verma-photo.jpg"],
+  },
 };
 
 export default function RootLayout({
