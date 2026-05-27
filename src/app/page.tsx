@@ -160,19 +160,22 @@ export default function Home() {
                 View resume
               </a>
             </div>
-            <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold text-teal-200">
-              {socialLinks.map((link) => (
-                <a
-                  className="transition hover:text-white"
-                  href={link.href}
-                  key={link.label}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  {link.label}
-                </a>
+            <p className="mt-5 text-sm text-zinc-400">
+              Find me on{" "}
+              {socialLinks.map((link, index) => (
+                <span key={link.label}>
+                  <a
+                    className="font-semibold text-teal-200 transition hover:text-white"
+                    href={link.href}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    {link.label}
+                  </a>
+                  {index < socialLinks.length - 1 ? " · " : ""}
+                </span>
               ))}
-            </div>
+            </p>
           </div>
 
           <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] p-8 shadow-2xl shadow-black/30 backdrop-blur">
