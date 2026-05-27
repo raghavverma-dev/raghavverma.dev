@@ -44,8 +44,18 @@ const personalProjects = [
   },
 ];
 
+const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Work", href: "#work" },
+  { label: "Projects", href: "#projects" },
+  { label: "Resume", href: "/raghav-verma-resume.pdf", external: true },
+  { label: "Music", href: "#music" },
+  { label: "Contact", href: "#contact" },
+];
+
 export default function Home() {
   const [hasEntered, setHasEntered] = useState(false);
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   if (!hasEntered) {
     return (
@@ -63,35 +73,56 @@ export default function Home() {
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(99,102,241,0.35),_transparent_32%),radial-gradient(circle_at_80%_20%,_rgba(20,184,166,0.22),_transparent_28%),linear-gradient(180deg,_#07070a_0%,_#11111a_52%,_#07070a_100%)]" />
         <div className="absolute left-1/2 top-20 -z-10 h-72 w-72 -translate-x-1/2 rounded-full bg-white/10 blur-3xl" />
 
-        <nav className="mx-auto flex max-w-6xl flex-col gap-4 rounded-3xl border border-white/10 bg-white/[0.03] px-5 py-4 text-sm text-zinc-300 backdrop-blur sm:flex-row sm:items-center sm:justify-between sm:rounded-full sm:py-3">
-          <a className="font-medium text-white" href="#">
-            raghavverma.dev
-          </a>
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 sm:gap-6">
-            <a className="transition hover:text-white" href="#about">
-              About
+        <nav className="mx-auto max-w-6xl rounded-3xl border border-white/10 bg-white/[0.03] px-5 py-4 text-sm text-zinc-300 backdrop-blur sm:rounded-full sm:py-3">
+          <div className="flex items-center justify-between gap-4">
+            <a className="font-medium text-white" href="#">
+              raghavverma.dev
             </a>
-            <a className="transition hover:text-white" href="#work">
-              Work
-            </a>
-            <a className="transition hover:text-white" href="#projects">
-              Projects
-            </a>
-            <a
-              className="transition hover:text-white"
-              href="/raghav-verma-resume.pdf"
-              rel="noopener noreferrer"
-              target="_blank"
+            <button
+              aria-expanded={isNavOpen}
+              aria-label="Toggle navigation menu"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-1.5 text-xs font-semibold text-zinc-200 transition hover:border-white/30 hover:bg-white/10 sm:hidden"
+              onClick={() => setIsNavOpen((current) => !current)}
+              type="button"
             >
-              Resume
-            </a>
-            <a className="transition hover:text-white" href="#music">
-              Music
-            </a>
-            <a className="transition hover:text-white" href="#contact">
-              Contact
-            </a>
+              Menu
+              <span
+                className={`transition-transform ${isNavOpen ? "rotate-180" : ""}`}
+              >
+                v
+              </span>
+            </button>
+            <div className="hidden items-center gap-6 sm:flex">
+              {navLinks.map((link) => (
+                <a
+                  className="transition hover:text-white"
+                  href={link.href}
+                  key={link.label}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                  target={link.external ? "_blank" : undefined}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
           </div>
+
+          {isNavOpen ? (
+            <div className="mt-4 grid gap-2 border-t border-white/10 pt-4 sm:hidden">
+              {navLinks.map((link) => (
+                <a
+                  className="rounded-2xl px-3 py-2 transition hover:bg-white/10 hover:text-white"
+                  href={link.href}
+                  key={link.label}
+                  onClick={() => setIsNavOpen(false)}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                  target={link.external ? "_blank" : undefined}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          ) : null}
         </nav>
 
         <div className="mx-auto grid max-w-6xl gap-14 pb-24 pt-20 lg:grid-cols-[1.12fr_0.88fr] lg:items-center lg:pb-32 lg:pt-28">
