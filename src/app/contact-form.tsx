@@ -125,7 +125,7 @@ export function ContactForm() {
           />
         </label>
 
-        <div className="flex flex-col gap-3 sm:flex-row">
+        <div className="flex">
           <button
             className="rounded-full bg-white px-6 py-3 text-center text-sm font-semibold text-zinc-950 transition hover:bg-zinc-200 disabled:cursor-not-allowed disabled:bg-white/30 disabled:text-zinc-600"
             disabled={status === "sending"}
@@ -133,14 +133,6 @@ export function ContactForm() {
           >
             {status === "sending" ? "sending..." : "send message"}
           </button>
-          <a
-            className="rounded-full border border-white/15 px-6 py-3 text-center text-sm font-semibold text-white transition hover:border-white/35 hover:bg-white/10"
-            href="/raghav-verma-resume.pdf"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            view resume
-          </a>
         </div>
         {status === "sent" ? (
           <p className="text-sm text-teal-200">sent. thank you.</p>

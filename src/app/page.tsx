@@ -182,7 +182,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="mt-6 flex items-center justify-between gap-4 text-sm text-zinc-400">
+              <div className="mt-6 flex flex-col items-center justify-center gap-3 text-center text-sm text-zinc-400 sm:flex-row sm:justify-between sm:text-left">
                 <span>Based in New York</span>
                 <span className="rounded-full border border-teal-300/25 px-3 py-1 text-teal-200">
                   Open to new opportunities
