@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { ContactForm } from "./contact-form";
 import { ReflectionPrompt } from "./reflection-prompt";
@@ -161,6 +162,14 @@ export default function Home() {
             <div className="absolute -bottom-24 left-8 h-48 w-48 rounded-full bg-teal-300/10 blur-3xl" />
 
             <div className="relative">
+              <Image
+                alt="Raghav Verma"
+                className="mb-7 aspect-[4/5] w-full rounded-[1.5rem] border border-white/10 object-cover object-center shadow-2xl shadow-black/30"
+                height={720}
+                priority
+                src="/raghav-verma-photo.jpg"
+                width={576}
+              />
               <p className="text-sm uppercase tracking-[0.3em] text-teal-300">
                 Currently
               </p>
