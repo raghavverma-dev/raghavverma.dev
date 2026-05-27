@@ -63,11 +63,11 @@ export default function Home() {
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(99,102,241,0.35),_transparent_32%),radial-gradient(circle_at_80%_20%,_rgba(20,184,166,0.22),_transparent_28%),linear-gradient(180deg,_#07070a_0%,_#11111a_52%,_#07070a_100%)]" />
         <div className="absolute left-1/2 top-20 -z-10 h-72 w-72 -translate-x-1/2 rounded-full bg-white/10 blur-3xl" />
 
-        <nav className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-white/10 bg-white/[0.03] px-5 py-3 text-sm text-zinc-300 backdrop-blur">
+        <nav className="mx-auto flex max-w-6xl flex-col gap-4 rounded-3xl border border-white/10 bg-white/[0.03] px-5 py-4 text-sm text-zinc-300 backdrop-blur sm:flex-row sm:items-center sm:justify-between sm:rounded-full sm:py-3">
           <a className="font-medium text-white" href="#">
             raghavverma.dev
           </a>
-          <div className="hidden items-center gap-6 sm:flex">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 sm:gap-6">
             <a className="transition hover:text-white" href="#about">
               About
             </a>
