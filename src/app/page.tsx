@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { ContactForm } from "./contact-form";
 import { ReflectionPrompt } from "./reflection-prompt";
+import { Reveal } from "./reveal";
 
 const selectedWork = [
   {
@@ -223,7 +224,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section
+      <Reveal
+        as="section"
         className="border-t border-white/10 bg-[radial-gradient(circle_at_15%_0%,_rgba(45,212,191,0.11),_transparent_30%),linear-gradient(180deg,_rgba(255,255,255,0.035),_rgba(255,255,255,0.01))] px-6 py-20 sm:px-10 lg:px-16"
         id="about"
       >
@@ -251,9 +253,10 @@ export default function Home() {
             </p>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section
+      <Reveal
+        as="section"
         className="border-y border-white/10 bg-[radial-gradient(circle_at_85%_15%,_rgba(129,140,248,0.16),_transparent_32%),linear-gradient(180deg,_rgba(99,102,241,0.06),_rgba(255,255,255,0.018))] px-6 py-20 sm:px-10 lg:px-16"
         id="work"
       >
@@ -268,22 +271,25 @@ export default function Home() {
             </h2>
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-3">
-            {selectedWork.map((item) => (
-              <article
-                className="rounded-3xl border border-white/10 bg-zinc-950/60 p-6 transition hover:-translate-y-1 hover:border-white/25 hover:bg-zinc-900/80"
+            {selectedWork.map((item, index) => (
+              <Reveal
+                as="article"
+                delay={index * 90}
+                className="rounded-3xl border border-white/10 bg-zinc-950/60 p-6 transition-[transform,border-color,background-color] duration-300 hover:-translate-y-1 hover:border-white/25 hover:bg-zinc-900/80"
                 key={item.title}
               >
                 <h3 className="text-xl font-semibold">{item.title}</h3>
                 <p className="mt-4 text-sm leading-6 text-zinc-400">
                   {item.description}
                 </p>
-              </article>
+              </Reveal>
             ))}
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section
+      <Reveal
+        as="section"
         className="bg-[radial-gradient(circle_at_15%_20%,_rgba(20,184,166,0.1),_transparent_30%),linear-gradient(180deg,_rgba(7,7,10,0),_rgba(24,24,27,0.32))] px-6 py-20 sm:px-10 lg:px-16"
         id="projects"
       >
@@ -359,9 +365,10 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section
+      <Reveal
+        as="section"
         className="border-t border-white/10 bg-[radial-gradient(circle_at_80%_0%,_rgba(45,212,191,0.13),_transparent_28%),linear-gradient(180deg,_rgba(20,184,166,0.04),_rgba(7,7,10,0))] px-6 py-20 sm:px-10 lg:px-16"
         id="music"
       >
@@ -401,13 +408,13 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="px-6 pb-24 sm:px-10 lg:px-16" id="contact">
+      <Reveal as="section" className="px-6 pb-24 sm:px-10 lg:px-16" id="contact">
         <div className="mx-auto max-w-6xl rounded-[2rem] border border-white/10 bg-white/[0.05] p-8 sm:p-10">
           <ContactForm />
         </div>
-      </section>
+      </Reveal>
     </main>
   );
 }
