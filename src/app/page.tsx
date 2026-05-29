@@ -77,8 +77,8 @@ export default function Home() {
 
   return (
     <main className="min-h-screen overflow-hidden bg-[#07070a] text-white">
-      <section className="relative isolate px-6 py-8 sm:px-10 lg:px-16">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(99,102,241,0.35),_transparent_32%),radial-gradient(circle_at_80%_20%,_rgba(20,184,166,0.22),_transparent_28%),linear-gradient(180deg,_#07070a_0%,_#11111a_52%,_#07070a_100%)]" />
+      <section className="relative isolate overflow-hidden px-6 py-8 sm:px-10 lg:px-16">
+        <div className="animate-gradient-drift absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(99,102,241,0.35),_transparent_32%),radial-gradient(circle_at_80%_20%,_rgba(20,184,166,0.22),_transparent_28%),linear-gradient(180deg,_#07070a_0%,_#11111a_52%,_#07070a_100%)]" />
         <div className="absolute left-1/2 top-20 -z-10 h-72 w-72 -translate-x-1/2 rounded-full bg-white/10 blur-3xl" />
 
         <nav className="mx-auto max-w-6xl rounded-3xl border border-white/10 bg-white/[0.03] px-5 py-4 text-sm text-zinc-300 backdrop-blur sm:rounded-full sm:py-3">
@@ -103,7 +103,7 @@ export default function Home() {
             <div className="hidden items-center gap-6 sm:flex">
               {navLinks.map((link) => (
                 <a
-                  className="transition hover:text-white"
+                  className="nav-underline transition hover:text-white"
                   href={link.href}
                   key={link.label}
                   rel={link.external ? "noopener noreferrer" : undefined}
@@ -135,52 +135,66 @@ export default function Home() {
 
         <div className="mx-auto grid max-w-6xl gap-14 pb-24 pt-20 lg:grid-cols-[1.12fr_0.88fr] lg:items-center lg:pb-32 lg:pt-28">
           <div>
-            <div className="mb-6 inline-flex rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-zinc-300 shadow-2xl shadow-black/20">
-              A tiny pause, then the resume stuff.
-            </div>
-            <h1 className="max-w-4xl text-5xl font-semibold tracking-[-0.06em] text-white sm:text-7xl lg:text-8xl">
-              Raghav Verma
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-300 sm:text-xl">
-              Software engineer at Salesforce building recommendation systems,
-              ML evaluation platforms, and distributed infrastructure for
-              data-intensive products.
-            </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <a
-                className="rounded-full bg-white px-6 py-3 text-center text-sm font-semibold text-zinc-950 transition hover:bg-zinc-200"
-                href="#contact"
-              >
-                Contact me
-              </a>
-              <a
-                className="rounded-full border border-white/15 px-6 py-3 text-center text-sm font-semibold text-white transition hover:border-white/35 hover:bg-white/10"
-                href="/raghav-verma-resume.pdf"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                View resume
-              </a>
-            </div>
-            <p className="mt-5 text-sm text-zinc-400">
-              Find me on{" "}
-              {socialLinks.map((link, index) => (
-                <span key={link.label}>
-                  <a
-                    className="font-semibold text-teal-200 transition hover:text-white"
-                    href={link.href}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    {link.label}
-                  </a>
-                  {index < socialLinks.length - 1 ? " · " : ""}
-                </span>
-              ))}
-            </p>
+            <Reveal>
+              <div className="mb-6 inline-flex rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-zinc-300 shadow-2xl shadow-black/20">
+                A tiny pause, then the resume stuff.
+              </div>
+            </Reveal>
+            <Reveal delay={80}>
+              <h1 className="max-w-4xl text-5xl font-semibold tracking-[-0.06em] text-white sm:text-7xl lg:text-8xl">
+                Raghav Verma
+              </h1>
+            </Reveal>
+            <Reveal delay={160}>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-300 sm:text-xl">
+                Software engineer at Salesforce building recommendation systems,
+                ML evaluation platforms, and distributed infrastructure for
+                data-intensive products.
+              </p>
+            </Reveal>
+            <Reveal delay={240}>
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <a
+                  className="rounded-full bg-white px-6 py-3 text-center text-sm font-semibold text-zinc-950 transition hover:bg-zinc-200"
+                  href="#contact"
+                >
+                  Contact me
+                </a>
+                <a
+                  className="rounded-full border border-white/15 px-6 py-3 text-center text-sm font-semibold text-white transition hover:border-white/35 hover:bg-white/10"
+                  href="/raghav-verma-resume.pdf"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  View resume
+                </a>
+              </div>
+            </Reveal>
+            <Reveal delay={320}>
+              <p className="mt-5 text-sm text-zinc-400">
+                Find me on{" "}
+                {socialLinks.map((link, index) => (
+                  <span key={link.label}>
+                    <a
+                      className="font-semibold text-teal-200 transition hover:text-white"
+                      href={link.href}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      {link.label}
+                    </a>
+                    {index < socialLinks.length - 1 ? " · " : ""}
+                  </span>
+                ))}
+              </p>
+            </Reveal>
           </div>
 
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] p-8 shadow-2xl shadow-black/30 backdrop-blur">
+          <Reveal
+            as="div"
+            delay={200}
+            className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] p-8 shadow-2xl shadow-black/30 backdrop-blur"
+          >
             <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-indigo-400/15 blur-3xl" />
             <div className="absolute -bottom-24 left-8 h-48 w-48 rounded-full bg-teal-300/10 blur-3xl" />
 
@@ -221,7 +235,7 @@ export default function Home() {
                 </span>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -276,7 +290,7 @@ export default function Home() {
               <Reveal
                 as="article"
                 delay={index * 90}
-                className="rounded-3xl border border-white/10 bg-zinc-950/60 p-6 transition-[transform,border-color,background-color] duration-300 hover:-translate-y-1 hover:border-white/25 hover:bg-zinc-900/80"
+                className="rounded-3xl border border-white/10 bg-zinc-950/60 p-6 transition-[transform,border-color,background-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-white/25 hover:bg-zinc-900/80 hover:shadow-2xl hover:shadow-indigo-500/10"
                 key={item.title}
               >
                 <h3 className="text-xl font-semibold">{item.title}</h3>

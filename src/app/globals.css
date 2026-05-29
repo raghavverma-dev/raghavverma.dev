@@ -22,3 +22,44 @@ body {
   background: #99f6e4;
   color: #09090b;
 }
+
+@keyframes gradient-drift {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-2%, 1.5%, 0) scale(1.08); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+.animate-gradient-drift {
+  animation: gradient-drift 22s ease-in-out infinite;
+  will-change: transform;
+}
+
+.nav-underline {
+  position: relative;
+}
+
+.nav-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-underline:hover::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-gradient-drift {
+    animation: none;
+  }
+  .nav-underline::after {
+    transition: none;
+  }
+}

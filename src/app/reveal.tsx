@@ -28,6 +28,16 @@ export function Reveal({
     if (!el) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
+    // At or near the viewport at mount (e.g. hero content, including items that
+    // straddle the fold on shorter screens)? Reveal it right away — the
+    // staggered transitionDelay still produces the cascade, and we don't gate
+    // it on a scroll event that may never come for above-the-fold content.
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight + 250 && rect.bottom > 0) {
+      setVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
