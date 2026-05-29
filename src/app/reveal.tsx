@@ -29,7 +29,7 @@ export function Reveal({
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     // At or near the viewport at mount (e.g. hero content, including items that
-    // straddle the fold on shorter screens)? Reveal it right away — the
+    // straddle the fold on shorter screens)? Reveal it right away. The
     // staggered transitionDelay still produces the cascade, and we don't gate
     // it on a scroll event that may never come for above-the-fold content.
     const rect = el.getBoundingClientRect();

@@ -40,7 +40,7 @@ const personalProjects = [
       "Docker",
     ],
     highlights: [
-      "Trains a LightGBM moneyline model on 16 leakage-safe features — Elo ratings carried across seasons, rolling form, rest, and back-to-backs — with a strictly chronological train/test split.",
+      "Trains a LightGBM moneyline model on 16 leakage-safe features (Elo ratings carried across seasons, rolling form, rest, and back-to-backs) with a strictly chronological train/test split.",
       "Cross-validated isotonic calibration (TimeSeriesSplit) kept only when it beats raw on a held-out validation tail, evaluated honestly with Brier score and log loss on games the model never saw.",
       "Ingests real NBA results via nba_api and closing lines from historical odds corpora, then backtests model edges against market prices with ROI and max-drawdown reporting.",
     ],
