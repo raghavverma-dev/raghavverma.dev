@@ -3,10 +3,18 @@
 import { FormEvent, useEffect, useState } from "react";
 
 const prompts = [
-  "what made you smile?",
+  "what made you smile today?",
   "what would make this week matter?",
-  "what are you proud of?",
-  "what deserves your attention?",
+  "what are you proud of lately?",
+  "what deserves your attention today?",
+  "what are you grateful for today?",
+  "what's one small win from today?",
+  "what's on your mind right now?",
+  "what could you let go of today?",
+  "who are you thinking about today?",
+  "what are you looking forward to?",
+  "what felt hard today, and why?",
+  "what would make tomorrow better?",
 ];
 
 type ReflectionPromptProps = {
